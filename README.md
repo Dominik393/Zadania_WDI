@@ -1,0 +1,1 @@
+Rozwiązanie zadań z WDI
