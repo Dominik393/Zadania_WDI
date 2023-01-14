@@ -1,7 +1,6 @@
 achieved_goal = False
 def rook(N,L, pos_y = 0, pos_x = 0, number_of_moves = 0):
     global achieved_goal
-
     if not (pos_x == N-1 and pos_y == N-1):
         minimal_number_of_moves = N*4
         for i in range(pos_x+1, N):
