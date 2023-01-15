@@ -34,33 +34,27 @@ def amount_of_digit(number, digit):
     return answ
 
 def zadanie(header):
-    p = header
-    parzyste = Node(None)
-    nieparzyste = Node(None)
+    bp = header
+    p = header.next
+    wart = Node(None)
+    wart.next = header
     while p is not None:
         if amount_of_digit(rebase(p.val,8),5) % 2 == 0 and amount_of_digit(rebase(p.val,8),5) != 0:
-            parzyste.dodawanko(p.val)
+            bp.next = p.next
+            p.next = wart.next
+            wart.next = p
+            p = bp.next
         else:
-            nieparzyste.dodawanko(p.val)
-        p = p.next
-
-    nieparzyste = nieparzyste.next
-    while nieparzyste is not None:
-        parzyste.dodawanko(nieparzyste.val)
-        nieparzyste = nieparzyste.next
-    return parzyste.next
+            bp = p
+            p = p.next
+    return wart.next
 
 
-print(rebase(100,8))
-print(rebase(150,8))
-print(rebase(166,8))
-print(rebase(381,8))
-print()
-
-lista = Node(100)
-lista.dodawanko(150)
-lista.dodawanko(166)
-lista.dodawanko(381)
+lista = Node(109)       #155
+lista.dodawanko(150)    #226
+lista.dodawanko(333)    #515
+lista.dodawanko(166)    #246
+lista.dodawanko(381)    #575
 lista.printowanko()
 print()
 odp = zadanie(lista)
