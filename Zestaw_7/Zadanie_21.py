@@ -46,13 +46,11 @@ def funkcja(header):
             bq = p
             q = bq.next
             dlugosc = 1
-
     if il_gig == 1:
         if pgigant == header:
             return qgigant.next
         else:
             pgigant.next = qgigant.next
-
     return header
 
 
